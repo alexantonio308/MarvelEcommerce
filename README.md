@@ -1,20 +1,18 @@
 # [Mobile] - Ecommerce Marvel 
 
-## Descrição do problema
+## Descrição 
 
-Nossa parceira, a Marvel Comics, está precisando colocar em produção um app de exposição/vendas de suas revistas em quadrinhos. É um app básico, consiste de uma tela de listagem, uma tela de detalhamento(com opção de quantidade e botão para compra) e uma tela de checkout dos produtos selecionados pelo usuário.
+#Tela1 - Listagem de Quadrinhos
+![image](https://user-images.githubusercontent.com/17026031/132622280-d1b2d6ce-a4bd-496e-a6de-1492eae0e146.png)
 
-## Requisitos
+#Tela2 - Descricao
 
-* **API: [https://developer.marvel.com](https://developer.marvel.com)**
+![image](https://user-images.githubusercontent.com/17026031/132622344-b965dbb3-78a8-40eb-b378-14ec33c21c16.png)
+#Tela3 - Checkout
 
-* **Crie o app de uma loja de revistas em quadrinhos utilizando a API da Marvel para todos os consumos de dados.**
+![image](https://user-images.githubusercontent.com/17026031/132622460-867d9936-5e3c-4dfb-a27a-011d62421cff.png)
 
-* **O layout e por sua conta, seja criativo.**
-
-* **A arquitetura é por sua conta, seja esperto.**
-
-* **Não esqueça da otimização de velocidade da aplicação nem da experiência do usuário.**
+## Requisitos Pendentes
 
 * **12% das revistas em quadrinhos carregadas devem ser marcadas como raras (aleatoriamente no próprio fonte ao carregar o REST).**
 
@@ -26,8 +24,6 @@ Nossa parceira, a Marvel Comics, está precisando colocar em produção um app d
  |-----------|----------|
  | Comum | 10% |
  | Raro | 25% |
-
-* **No arquivo README do projeto explique o funcionamento e a solução adotada na sua implementação do desafio.**
 
 # Notas
 
