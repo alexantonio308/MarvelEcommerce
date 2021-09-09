@@ -1,5 +1,5 @@
 # [Mobile] - Ecommerce Marvel 
-#Obs.: Achei pouco tempo para o desafio pelo motivo de nunca ter trabalhado com React-Native ou qualquer desenvolvimento Mobile. se possivel, gostaria de mais um tempo para terminar.
+#Obs.: Achei pouco tempo para o desafio pelo motivo de nunca ter trabalhado com React-Native ou qualquer desenvolvimento Mobile, com isso o layout ficou pendende para ser editado, sendo priorizado entregar algo funcional, se possivel gostaria de mais um tempo para terminar.
 
 ## Descrição 
 ### Tela 1 - Home
