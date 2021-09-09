@@ -28,8 +28,8 @@ const Checkout = ({ navigation, route }) => {
                 </View>
                 <View style={{ height: '50%', width: '100%' }}>
 
-                    <View style={{marginLeft:10,marginTop:10, height: '50%', width: '100%', backgroundColor: 'white', alignItems: 'flex-start', justifyContent: 'center' }} >
-                        <Text style={{ width:'80%' ,height: 25}}>{title}</Text>
+                    <View style={{marginLeft:10,marginTop:10, height: '60%', width: '100%', backgroundColor: 'white', alignItems: 'flex-start', justifyContent: 'center' }} >
+                        <Text style={{ width:'80%' ,height:50}}>{title}</Text>
                         <Text style={{ width:'80%',height: 25}}>Qnt: {count}</Text>
                         <Text  style={{ width:'80%',height: 25}}>Price: $ {price}</Text>
                         <Text  style={{ width:'80%',height: 25, marginBottom: 20}}>Total: $ {total}</Text>
