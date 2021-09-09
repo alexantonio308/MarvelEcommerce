@@ -1,4 +1,5 @@
 # [Mobile] - Ecommerce Marvel 
+#Obs.: Achei pouco tempo para o desafio pelo motivo de nunca ter trabalhado com React-Native ou qualquer desenvolvimento Mobile. se possivel, gostaria de mais um tempo para terminar.
 
 ## Descrição 
 ### Tela 1 - Home
@@ -34,8 +35,4 @@ Mais abaixo um botao Comprar sem acao(pendente).
  |-----------|----------|
  | Comum | 10% |
  | Raro | 25% |
-
-
-#Obs.: Achei pouco tempo para o desafio pelo motivo de nunca ter trabalhado com React-Native ou qualquer desenvolvimento Mobile. se possivel, gostaria de mais um tempo para terminar.
-
 
