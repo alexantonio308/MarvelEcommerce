@@ -1,15 +1,25 @@
 # [Mobile] - Ecommerce Marvel 
 
 ## Descrição 
-
-#Tela 1 - Listagem de Quadrinhos | Tela 2 - Descricao | Tela 3 - Checkout
-
-
+### Tela 1 - Home
+Construido com 'Effect Hook'.
+URL da API sendo chamada com 'axios' em string unica, organizar diretorio e chaves ficaram pendentes.
+Levei cerca de 2 dias para encontrar a hash ideal gerada pelo md5 para a Autorizacao da API, sendo a hash: timestap=1 + PUBLIC_KEY + PRIVATE_KEY, onde o timestap nao funciona com informacoes atuais.
+FlatList organizando em duas rows os TouchableOpacity onde ao clicar chama um metodo que abre outra tela passando as informacoes por props.
 ![image](https://user-images.githubusercontent.com/17026031/132622280-d1b2d6ce-a4bd-496e-a6de-1492eae0e146.png)
+
+### Tela 2 - Description
+Tela possui Titulo, Imagem e Descricao.
+Abaixo dois botoes que funcionam como contador, sendo nao possivel settar numero negativo.
+O botao Adicionar, onde tambem possui TouchableOpacity chamando a tela de Checkout.
 ![image](https://user-images.githubusercontent.com/17026031/132622344-b965dbb3-78a8-40eb-b378-14ec33c21c16.png)
+
+### Tela 3 - Checkout
+Tela possui Imagem, Titulo, Quantidade, Price, Total e Campo de input Cupom.
+Mais abaixo um botao Comprar sem acao(pendente).
 ![image](https://user-images.githubusercontent.com/17026031/132622460-867d9936-5e3c-4dfb-a27a-011d62421cff.png)
 
-## Requisitos Pendentes
+## Requisitos Pendentes (Regras de Negocio)
 
 * **12% das revistas em quadrinhos carregadas devem ser marcadas como raras (aleatoriamente no próprio fonte ao carregar o REST).**
 
@@ -22,20 +32,7 @@
  | Comum | 10% |
  | Raro | 25% |
 
-# Notas
 
-1. Você deve utilizar Android SDK(nativo)
-2. Não será necessário autenticação.
-3. Comente qualquer dúvida e cada decisão tomada. Você pode utilizar o README para esclarecer.
-4. Entre os critérios de avaliação estão:
-* Usabilidade
-* Criatividade
-* Qualidade do código
-* Testes
-* Código limpo e organização
-* Documentação de código
-* Documentação do projeto (readme)
-* Performance
-* Quantidade de funcionalidades básicas e extra
+#Obs.: Achei pouco tempo para o desafio pelo motivo de nunca ter trabalhado com React-Native ou qualquer desenvolvimento Mobile. se possivel, gostaria de mais um tempo para terminar.
 
 
