@@ -6,7 +6,6 @@ import Home from '../pages/home'
 import Description from '../pages/description'
 import Cart from '../cart/'
 import { TouchableOpacity, Image, View } from 'react-native'
-import Icon from 'react-native-vector-icons/FontAwesome5';
 
 export default () => {
   
@@ -17,13 +16,10 @@ export default () => {
       <Stack.Navigator screenOptions='screen'>
         <Stack.Screen name='Home' component={Home} options={{
           headerTitle: () => (   
-            <Image name='logo' style={{ width:90, height:39 }}  source={require('../image/logo.png')}/>
-          ),
-          headerRight: () => ( 
-            <TouchableOpacity onPress={() => component={Cart}}>
-              <Icon name='shopping-cart' class='shopping-cart' size={25}  color='black' backgroundColor='white'  />
-            </TouchableOpacity>
-          ),
+            <View  >
+              <Image name='logo' style={{ width:90, height:39}}  source={require('../image/logo.png')}/>
+            </View>
+          )
         }}></Stack.Screen>
         <Stack.Screen style={{ backgroundColor: '#101010' }} name='Description' component={Description} />
         <Stack.Screen style={{ backgroundColor: '#101010' }} name='Cart' component={Cart} options={{ tabBarIcon: IconWithBadge }} />

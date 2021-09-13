@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { ScrollView, ImageBackground, View, Text, TextInput } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
+import { useCart } from '../context/cart';
 
-const Checkout = ({ navigation, route }) => {
+
+export default ({ navigation, route }) => {
+    const { add } = useCart();
     const [image, setImage] = useState();
     const [title, setTitle] = useState();
     const [price, setPrice] = useState();
@@ -23,10 +26,10 @@ const Checkout = ({ navigation, route }) => {
     return (
         <View style={{ width: '100%', flex: 1, backgroundColor: 'white',alignItems: 'center', justifyContent: 'center', }}>
             <View style={{height: '100%', width: '100%', alignItems: 'center', justifyContent: 'center'}}>
-                <View style={{ height: '50%', width: '100%', backgroundColor: '#242526' }}>
+                <View style={{ height: '40%', width: '100%', backgroundColor: '#242526' }}>
                     <ImageBackground style={{ height: '100%', width: '100%' }} resizeMode="center" source={{ uri: image }} />
                 </View>
-                <View style={{ height: '50%', width: '100%' }}>
+                <View style={{ height: '40%', width: '100%' }}>
 
                     <View style={{marginLeft:10,marginTop:10, height: '60%', width: '100%', backgroundColor: 'white', alignItems: 'flex-start', justifyContent: 'center' }} >
                         <Text style={{ width:'80%' ,height:50}}>{title}</Text>
@@ -45,10 +48,7 @@ const Checkout = ({ navigation, route }) => {
             </View>
         </View>
 
-
     )
-
 
 }
 
-export default Checkout;
