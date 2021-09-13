@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Modal, SafeAreaView, ImageBackground, FlatList, Text, TouchableOpacity, View, ScrollView } from 'react-native';
+import { Modal, Image, ImageBackground, FlatList, Text, TouchableOpacity, View, ScrollView } from 'react-native';
 import ModalComponent from '../components/modalComponent';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
@@ -15,14 +15,13 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 const Home = ({ navigation }) => {
     const [modalVisible, setModalVisible] = useState(false);
     const [comics, setComics] = useState([])
-    const dataCart = []
     useEffect(() => {
 
         async function getComics() {
             const response = await axios.get('https://gateway.marvel.com/v1/public/comics?ts=1&apikey=71bb8861241c175f09eaa86010f4ff50&hash=56f90f70f80f2db7aae6f9732adbeb6f');
             setComics(response.data.data.results)
+            setTotalItem(count*price)
         }
-
         getComics()
     }, [])
 
@@ -30,8 +29,9 @@ const Home = ({ navigation }) => {
     const [description, setDescription] = useState();
     const [imagePath, setImagePath] = useState();
     const [imageExtension, setImageExtension] = useState();
-    const [price, setPrice] = useState();
+    const [price, setPrice] = useState(price);
     const [count, setCount] = useState(0);
+    const [total, setTotalItem] = useState(0);
     const [cardList, setCardList] = useState([]);
 
     console.log('Seu carrinho:', cardList)
@@ -68,7 +68,7 @@ const Home = ({ navigation }) => {
                                 // onPress={() => add({ title: title, description:description, imagePath: thumbnail.path, imageExtension: thumbnail.extension, price: comics.prices[0].price })}
                                 onPress={() => {
                                     setModalVisible(false);
-                                    const arr = [...cardList, { title, imagePath, imageExtension, price }];
+                                    const arr = [...cardList, { title, imagePath, imageExtension, price, count, total }];
                                     setCardList(arr)
 
                                 }}
@@ -79,16 +79,20 @@ const Home = ({ navigation }) => {
                     </View>
                 </View>
             </Modal>
-            <View style={{flexDirection: 'row', height: '10%', width:'100%', justifyContent: 'space-between' }}>
-                <Text style={{ fontFamily: 'Sans', marginLeft: 170 }}>Comics</Text>
-                <TouchableOpacity onPress={() => navigation.navigate('Cart')}>
-                    <Icon name='shopping-cart' class='shopping-cart' style={{ textAlign:'right', marginRight:25}} size={25} color='black' backgroundColor='white' />
+            <View style={{ flexDirection: 'row', height: '10%', width: '100%', alignItems: 'center'}}>
+                <View style={{ height: '100%',width:'90%',marginLeft:15, alignItems:'center', justifyContent: 'center' }} >
+                    <Image name='logo' style={{ width: 90, height: 39 }} source={require('../image/logo.png')} />
+                </View>
+                <View style={{ width:'100%', position:'absolute', aliginSelf:'flex-end'}}>
+                <TouchableOpacity onPress={() => navigation.navigate('Cart', { title, description, imagePath, imageExtension, count, price })}>
+                    <Icon name='shopping-cart' class='shopping-cart' style={{ textAlign: 'right', marginRight: 25 }} size={25} color='black' backgroundColor='white' />
                 </TouchableOpacity>
+                </View>
             </View>
             <View style={{ height: '90%' }}>
                 <FlatList style={{ alignSelf: 'center' }} data={comics} keyExtractor={(comics) => comics.id} renderItem={({ item: comics, index }) => (
                     <TouchableOpacity style={{ backgroundColor: 'white', height: '100%', width: '50%', borderRadius: 10, alignItems: 'center', alignSelf: 'center', padding: 5 }}
-                        onPress={() => { setModalVisible(true); setTitle(comics.title); setDescription(comics.description); setImageExtension(comics.thumbnail.extension); setPrice(comics.prices[0].price); setImagePath(comics.thumbnail.path) }}
+                        onPress={() => { setModalVisible(true); setTitle(comics.title); setDescription(comics.description); setImageExtension(comics.thumbnail.extension); setPrice(comics.prices[0].price); setImagePath(comics.thumbnail.path), setCount(count), setTotalItem(parseFloat(count * price)) }}
                     // onPress={() => navigation.navigate('Description', { title: comics.title, description: comics.description, imagePath: comics.thumbnail.path, imageExtension: comics.thumbnail.extension, price: comics.prices[0].price })}
                     >
                         <ImageBackground style={{ shadowColor: "#000", shadowOffset: { width: 0, height: 6, }, shadowOpacity: 0.39, shadowRadius: 8.30, elevation: 13, marginLeft: 10, marginTop: 5, height: 230, width: '90%', borderRadius: 25 }} source={{ uri: `${comics.thumbnail.path}.${comics.thumbnail.extension}` }} />

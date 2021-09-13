@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Alert, Modal, Text, Pressable, View } from 'react-native';
 import { styles } from './style';
-import Description from '../../pages/description'
+import Description from '../../pages/description';
 
 
 const ModalComponent = ({visible = false, setModalVisible = false, title = null, description= null, imagePath= null, imageExtension= null, price= null }) => {

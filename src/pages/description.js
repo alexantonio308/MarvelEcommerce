@@ -13,12 +13,16 @@ const Description = ({ navigation, route }) => {
     const [count, setCount] = useState(0);
     const [descriptionLocal, setDescriptionLocal] = useState();
     useEffect(() => {
+
         if (route.params) {
             setTitle(route.params.title);
             setDescriptionLocal(route.params.description);
             setImage(`${route.params.imagePath}.${route.params.imageExtension}`)
             setPrice(route.params.price);
-            setTotal(route.params.total)
+            setTotal(route.params.total);
+            setCount(route.params.count);
+            setTotal(route.params.total);
+
         }
     }, [route.params])
 
@@ -48,7 +52,7 @@ const Description = ({ navigation, route }) => {
                     </TouchableOpacity>
                 </View>
                 <View style={{ height: '40%', width: '40%', backgroundColor: 'blue',marginRight:10 }}>
-                    <TouchableOpacity style={{ height: '100%', width: '100%', backgroundColor: '#242526' }} onPress={() => add(title,descriptionLocal,image,count,price)}>
+                    <TouchableOpacity style={{ height: '100%', width: '100%', backgroundColor: '#242526' }} onPress={() => add(title,descriptionLocal,image,count,price, count)}>
                         <Text style={{ padding: 10, fontSize: 20, textAlign: "center" }}>Adicionar</Text>
                     </TouchableOpacity>
                 </View>
