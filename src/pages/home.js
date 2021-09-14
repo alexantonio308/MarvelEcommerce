@@ -29,6 +29,7 @@ const Home = ({ navigation }) => {
     const [description, setDescription] = useState();
     const [imagePath, setImagePath] = useState();
     const [imageExtension, setImageExtension] = useState();
+    const [image, setImage] = useState();
     const [price, setPrice] = useState(price);
     const [count, setCount] = useState(0);
     const [total, setTotalItem] = useState(0);
@@ -68,7 +69,9 @@ const Home = ({ navigation }) => {
                                 // onPress={() => add({ title: title, description:description, imagePath: thumbnail.path, imageExtension: thumbnail.extension, price: comics.prices[0].price })}
                                 onPress={() => {
                                     setModalVisible(false);
-                                    const arr = [...cardList, { title, imagePath, imageExtension, price, count, total }];
+                                    const image = (imagePath+'.'+imageExtension);
+                                    const arr = [...cardList, { title, price, count, total, image }];
+                                    console.log(image)
                                     setCardList(arr)
 
                                 }}
@@ -84,7 +87,7 @@ const Home = ({ navigation }) => {
                     <Image name='logo' style={{ width: 90, height: 39 }} source={require('../image/logo.png')} />
                 </View>
                 <View style={{ width:'100%', position:'absolute', aliginSelf:'flex-end'}}>
-                <TouchableOpacity onPress={() => navigation.navigate('Cart', { title, description, imagePath, imageExtension, count, price })}>
+                <TouchableOpacity onPress={() => navigation.navigate('Cart', { cardList })}>
                     <Icon name='shopping-cart' class='shopping-cart' style={{ textAlign: 'right', marginRight: 25 }} size={25} color='black' backgroundColor='white' />
                 </TouchableOpacity>
                 </View>
