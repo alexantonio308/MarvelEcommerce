@@ -19,7 +19,7 @@ const Home = ({ navigation }) => {
         async function getComics() {
             const response = await axios.get('https://gateway.marvel.com/v1/public/comics?ts=1&apikey=71bb8861241c175f09eaa86010f4ff50&hash=56f90f70f80f2db7aae6f9732adbeb6f');
             setComics(response.data.data.results)
-            setTotalItem(count*price)
+            setTotalItem(count * price)
         }
         getComics()
     }, [])
@@ -55,47 +55,45 @@ const Home = ({ navigation }) => {
                     <View style={{ flexDirection: 'row', height: '20%', width: '100%', backgroundColor: 'white', alignItems: 'center', justifyContent: 'space-between' }} >
                         <View style={{ padding: 10, flexDirection: 'row', height: '100%', width: '40%', backgroundColor: 'white', alignItems: 'center', justifyContent: 'space-between' }} >
                             <TouchableOpacity style={{ height: 40, width: 40, backgroundColor: '#242526', borderRadius: 80, justifyContent: 'center', alignItems: 'center' }} onPress={() => { count > 0 && setCount(prevCount => prevCount - 1) }}>
-                                <Text style={{ fontSize: 25,paddingBottom:3, textAlign: "center",color: 'white' }}>-</Text>
+                                <Text style={{ fontSize: 25, paddingBottom: 3, textAlign: "center", color: 'white' }}>-</Text>
                             </TouchableOpacity>
                             <Text style={{ fontSize: 20 }}>{count}</Text>
                             <TouchableOpacity style={{ height: 40, width: 40, backgroundColor: '#242526', borderRadius: 80, justifyContent: 'center', alignItems: 'center' }} onPress={() => setCount(prevCount => prevCount + 1)}>
-                                <Text style={{ fontSize: 25,paddingBottom:3, textAlign: "center",color: 'white' }}>+</Text>
+                                <Text style={{ fontSize: 25, paddingBottom: 3, textAlign: "center", color: 'white' }}>+</Text>
                             </TouchableOpacity>
                         </View>
                         <View style={{ height: '40%', width: '40%', backgroundColor: 'blue', marginRight: 10 }}>
                             <TouchableOpacity style={{ height: '100%', width: '100%', backgroundColor: '#242526' }}
                                 // onPress={() => add({ title: title, description:description, imagePath: thumbnail.path, imageExtension: thumbnail.extension, price: comics.prices[0].price })}
                                 onPress={() => {
+                                    setCount(0)
                                     setModalVisible(false);
-                                    const image = (imagePath+'.'+imageExtension);
+                                    const image = (imagePath + '.' + imageExtension);
                                     const arr = [...cardList, { title, price, count, total, image }];
                                     console.log(image)
-                                    setCardList(arr)
-
+                                    count>0&&setCardList(arr)
                                 }}
                             >
-                                <Text style={{ padding:15, fontSize: 20, textAlign: "center",color:'white' }}>Adicionar</Text>
+                                <Text style={{ padding: 15, fontSize: 20, textAlign: "center", color: 'white' }}>Adicionar</Text>
                             </TouchableOpacity>
                         </View>
                     </View>
                 </View>
             </Modal>
-            <View style={{ flexDirection: 'row', height: '10%', width: '100%', alignItems: 'center'}}>
-                <View style={{ height: '100%',width:'90%',marginLeft:15, alignItems:'center', justifyContent: 'center' }} >
+            <View style={{ flexDirection: 'row', height: '10%', width: '100%', alignItems: 'center' }}>
+                <View style={{ height: '100%', width: '90%', marginLeft: 15, alignItems: 'center', justifyContent: 'center' }} >
                     <Image name='logo' style={{ width: 90, height: 39 }} source={require('../image/logo.png')} />
                 </View>
-                <View style={{ width:'100%', position:'absolute', aliginSelf:'flex-end'}}>
-                <TouchableOpacity onPress={() => navigation.navigate('Cart', { cardList })}>
-                    <Icon name='shopping-cart' class='shopping-cart' style={{ textAlign: 'right', marginRight: 25 }} size={25} color='black' backgroundColor='white' />
-                </TouchableOpacity>
+                <View style={{ width: '100%', position: 'absolute', aliginSelf: 'flex-end' }}>
+                    <TouchableOpacity onPress={() => navigation.navigate('Cart', { cardList })}>
+                        <Icon name='shopping-cart' class='shopping-cart' style={{ textAlign: 'right', marginRight: 25 }} size={25} color='black' backgroundColor='white' />
+                    </TouchableOpacity>
                 </View>
             </View>
             <View style={{ height: '90%' }}>
                 <FlatList style={{ alignSelf: 'center' }} data={comics} keyExtractor={(comics) => comics.id} renderItem={({ item: comics, index }) => (
                     <TouchableOpacity style={{ backgroundColor: 'white', height: '100%', width: '50%', borderRadius: 10, alignItems: 'center', alignSelf: 'center', padding: 5 }}
-                        onPress={() => { setModalVisible(true); setTitle(comics.title); setDescription(comics.description); setImageExtension(comics.thumbnail.extension); setPrice(comics.prices[0].price); setImagePath(comics.thumbnail.path), setCount(count), setTotalItem(parseFloat(count * price)) }}
-                    // onPress={() => navigation.navigate('Description', { title: comics.title, description: comics.description, imagePath: comics.thumbnail.path, imageExtension: comics.thumbnail.extension, price: comics.prices[0].price })}
-                    >
+                        onPress={() =>    { setModalVisible(true); setTitle(comics.title); setDescription(comics.description); setImageExtension(comics.thumbnail.extension); setPrice(comics.prices[0].price); setImagePath(comics.thumbnail.path), setCount(count), setTotalItem(parseFloat(count * price)) }}                    >
                         <ImageBackground style={{ shadowColor: "#000", shadowOffset: { width: 0, height: 6, }, shadowOpacity: 0.39, shadowRadius: 8.30, elevation: 13, marginLeft: 10, marginTop: 5, height: 230, width: '90%', borderRadius: 25 }} source={{ uri: `${comics.thumbnail.path}.${comics.thumbnail.extension}` }} />
                         <Text style={{ fontFamily: 'Sans', padding: 10, textAlign: "center" }}>{comics.title}</Text>
                     </TouchableOpacity>
