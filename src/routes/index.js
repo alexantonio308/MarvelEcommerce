@@ -3,9 +3,9 @@ import { createStackNavigator } from '@react-navigation/stack';
 import 'react-native-gesture-handler';
 import React from 'react';
 import Home from '../pages/home';
+import Cart from '../pages/cart';
 import Description from '../pages/description';
-import Cart from '../cart/';
-import { TouchableOpacity, Image, View } from 'react-native';
+
 
 export default () => {
 
@@ -18,19 +18,8 @@ export default () => {
       }}>
         <Stack.Screen name='Home' component={Home} screenOptions ></Stack.Screen>
         <Stack.Screen style={{ backgroundColor: '#101010' }} name='Description' component={Description} />
-        <Stack.Screen style={{ backgroundColor: '#101010' }} name='Cart' component={Cart} options={{ tabBarIcon: IconWithBadge }} />
+        <Stack.Screen style={{ backgroundColor: '#101010' }} name='Cart' component={Cart}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
-}
-
-function IconWithBadge() {
-  const { cart } = useCart()
-  return (
-    <View style={{ width: 24, height: 24, margin: 25, alignItems: 'center' }}>
-      <Text>
-        {Object.keys(cart).length}
-      </Text>
-    </View>
-  )
 }
