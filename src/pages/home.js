@@ -1,7 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Modal, Image, ImageBackground, FlatList, Text, TouchableOpacity, View, ScrollView } from 'react-native';
-import ModalComponent from '../components/modalComponent';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
 
@@ -35,7 +34,6 @@ const Home = ({ navigation }) => {
     const [total, setTotalItem] = useState(0);
     const [cardList, setCardList] = useState([]);
 
-    console.log('Seu carrinho:', cardList)
     return (
         <View style={{ flex: 1, backgroundColor: 'white' }}>
             <Modal visible={modalVisible} animationType="slide"
@@ -57,11 +55,11 @@ const Home = ({ navigation }) => {
                     <View style={{ flexDirection: 'row', height: '20%', width: '100%', backgroundColor: 'white', alignItems: 'center', justifyContent: 'space-between' }} >
                         <View style={{ padding: 10, flexDirection: 'row', height: '100%', width: '40%', backgroundColor: 'white', alignItems: 'center', justifyContent: 'space-between' }} >
                             <TouchableOpacity style={{ height: 40, width: 40, backgroundColor: '#242526', borderRadius: 80, justifyContent: 'center', alignItems: 'center' }} onPress={() => { count > 0 && setCount(prevCount => prevCount - 1) }}>
-                                <Text style={{ fontSize: 25, textAlign: "center" }}>-</Text>
+                                <Text style={{ fontSize: 25,paddingBottom:3, textAlign: "center",color: 'white' }}>-</Text>
                             </TouchableOpacity>
                             <Text style={{ fontSize: 20 }}>{count}</Text>
                             <TouchableOpacity style={{ height: 40, width: 40, backgroundColor: '#242526', borderRadius: 80, justifyContent: 'center', alignItems: 'center' }} onPress={() => setCount(prevCount => prevCount + 1)}>
-                                <Text style={{ fontSize: 25, textAlign: "center" }}>+</Text>
+                                <Text style={{ fontSize: 25,paddingBottom:3, textAlign: "center",color: 'white' }}>+</Text>
                             </TouchableOpacity>
                         </View>
                         <View style={{ height: '40%', width: '40%', backgroundColor: 'blue', marginRight: 10 }}>
@@ -76,7 +74,7 @@ const Home = ({ navigation }) => {
 
                                 }}
                             >
-                                <Text style={{ padding: 10, fontSize: 20, textAlign: "center" }}>Adicionar</Text>
+                                <Text style={{ padding:15, fontSize: 20, textAlign: "center",color:'white' }}>Adicionar</Text>
                             </TouchableOpacity>
                         </View>
                     </View>
